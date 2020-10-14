@@ -158,6 +158,11 @@ abstract class AbstractEnum
         return self::$constants[static::class];
     }
 
+    final  public static function enums()
+    {
+        return array_keys(self::values());
+    }
+
     /**
      * Returns the name of this enum constant, exactly as declared in its enum declaration.
      *
