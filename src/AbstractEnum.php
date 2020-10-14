@@ -120,14 +120,11 @@ abstract class AbstractEnum
             if (array_key_exists($name, self::$values[static::class])) {
                 continue;
             }
-
             static::createValue($name, $constant[0], $constant[1]);
         }
-
         uasort(self::$values[static::class], function (self $a, self $b) {
             return $a->ordinal() <=> $b->ordinal();
         });
-
         self::$allValuesLoaded[static::class] = true;
         return self::$values[static::class];
     }
@@ -137,7 +134,6 @@ abstract class AbstractEnum
         if (isset(self::$constants[static::class])) {
             return self::$constants[static::class];
         }
-
         self::$constants[static::class] = [];
         $reflectionClass = new ReflectionClass(static::class);
         $ordinal = -1;
@@ -146,15 +142,12 @@ abstract class AbstractEnum
             if (!$reflectionConstant->isProtected()) {
                 continue;
             }
-
             $value = $reflectionConstant->getValue();
-
             self::$constants[static::class][$reflectionConstant->name] = [
                 ++$ordinal,
-                is_array($value) ? $value : []
+                is_array($value) ? $value : [$value]
             ];
         }
-
         return self::$constants[static::class];
     }
 
