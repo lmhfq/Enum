@@ -1,10 +1,10 @@
 <?php
 declare(strict_types = 1);
 
-namespace DASPRiD\Enum;
+namespace Lmh\Enum;
 
-use DASPRiD\Enum\Exception\ExpectationException;
-use DASPRiD\Enum\Exception\IllegalArgumentException;
+use Lmh\Enum\Exception\ExpectationException;
+use Lmh\Enum\Exception\IllegalArgumentException;
 use IteratorAggregate;
 use Serializable;
 use Traversable;
@@ -143,6 +143,9 @@ final class EnumMap implements Serializable, IteratorAggregate
 
     /**
      * Returns true if this map contains a mapping for the specified key.
+     * @param AbstractEnum $key
+     * @return bool
+     * @throws IllegalArgumentException
      */
     public function containsKey(AbstractEnum $key) : bool
     {
@@ -160,7 +163,9 @@ final class EnumMap implements Serializable, IteratorAggregate
      * possible that hte map explicitly maps the key to null. The {@see self::containsKey()} operation may be used to
      * distinguish these two cases.
      *
+     * @param AbstractEnum $key
      * @return mixed
+     * @throws IllegalArgumentException
      */
     public function get(AbstractEnum $key)
     {
@@ -173,6 +178,8 @@ final class EnumMap implements Serializable, IteratorAggregate
      *
      * If the map previously contained a mapping for this key, the old value is replaced.
      *
+     * @param AbstractEnum $key
+     * @param $value
      * @return mixed the previous value associated with the specified key, or null if there was no mapping for the key.
      *               (a null return can also indicate that the map previously associated null with the specified key.)
      * @throws IllegalArgumentException when the passed values does not match the internal value type
@@ -199,8 +206,10 @@ final class EnumMap implements Serializable, IteratorAggregate
     /**
      * Removes the mapping for this key frm this map if present.
      *
+     * @param AbstractEnum $key
      * @return mixed the previous value associated with the specified key, or null if there was no mapping for the key.
      *               (a null return can also indicate that the map previously associated null with the specified key.)
+     * @throws IllegalArgumentException
      */
     public function remove(AbstractEnum $key)
     {

@@ -1,26 +1,10 @@
 # PHP 7.1 enums
 
-[![Build Status](https://travis-ci.org/DASPRiD/Enum.svg?branch=master)](https://travis-ci.org/DASPRiD/Enum)
-[![Coverage Status](https://coveralls.io/repos/github/DASPRiD/Enum/badge.svg?branch=master)](https://coveralls.io/github/DASPRiD/Enum?branch=master)
-[![Latest Stable Version](https://poser.pugx.org/dasprid/enum/v/stable)](https://packagist.org/packages/dasprid/enum)
-[![Total Downloads](https://poser.pugx.org/dasprid/enum/downloads)](https://packagist.org/packages/dasprid/enum)
-[![License](https://poser.pugx.org/dasprid/enum/license)](https://packagist.org/packages/dasprid/enum)
-
-It is a well known fact that PHP is missing a basic enum type, ignoring the rather incomplete `SplEnum` implementation
-which is only available as a PECL extension. There are also quite a few other userland enum implementations around,
-but all of them have one or another compromise. This library tries to close that gap as far as PHP allows it to.
 
 ## Usage
 
-### Basics
-
-At its core, there is the `DASPRiD\Enum\AbstractEnum` class, which by default will work with constants like any other
-enum implementation you might know. The first clear difference is that you should define all the constants as protected
-(so nobody outside your class can read them but the `AbstractEnum` can still do so). The other even mightier difference
-is that, for simple enums, the value of the constant doesn't matter at all. Let's have a look at a simple example:
-
 ```php
-use DASPRiD\Enum\AbstractEnum;
+use Lmh\Enum\AbstractEnum;
 
 /**
  * @method static self MONDAY()
@@ -43,11 +27,6 @@ final class WeekDay extends AbstractEnum
 }
 ``` 
 
-If you need to provide constants for either internal use or public use, you can mark them as either private or public,
-in which case they will be ignored by the enum, which only considers protected constants as valid values. As you can
-see, we specifically defined the generated magic methods in a class level doc block, so anyone using this class will
-automatically have proper auto-completion in their IDE. Now since you have defined the enum, you can simply use it like
-that:
 
 ```php
 function tellItLikeItIs(WeekDay $weekDay)
@@ -85,7 +64,7 @@ just one instance of the same type. Of course, the values of constants are not c
 a more complex example:
 
 ```php
-use DASPRiD\Enum\AbstractEnum;
+use Lmh\Enum\AbstractEnum;
 
 /**
  * @method static self MERCURY()

@@ -1,11 +1,11 @@
 <?php
 declare(strict_types = 1);
 
-namespace DASPRiD\Enum;
+namespace Lmh\Enum;
 
-use DASPRiD\Enum\Exception\CloneNotSupportedException;
-use DASPRiD\Enum\Exception\SerializeNotSupportedException;
-use DASPRiD\Enum\Exception\UnserializeNotSupportedException;
+use Lmh\Enum\Exception\CloneNotSupportedException;
+use Lmh\Enum\Exception\SerializeNotSupportedException;
+use Lmh\Enum\Exception\UnserializeNotSupportedException;
 
 final class NullValue
 {
